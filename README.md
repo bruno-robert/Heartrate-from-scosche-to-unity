@@ -2,7 +2,6 @@
 The project's goal is to get to measure the heart rate using the Scosche rhythm+ armband and get the results in real time in Unity.
 
 # Introduction
-
 At first I thought that getting the heartrate from the armband to Unity would be a piece of cake (relatively). Connect it to my PC and somehow get the values read by the armband into unity with a small script. Maybe in the worst case create a small script to connect to the armband directly from unity.
 
 The method I ended up using is way more dirty and requires many many steps so hold on tight!
@@ -13,3 +12,19 @@ First thing, the armband doesn't connect to computers, the only support I found 
 Armband -> [rythm sync](https://itunes.apple.com/us/app/rhythm-sync/id1226606963?mt=8) -> Home made iOS app -> node.js socket server -> Unity C# script
 
 In this is repo I'll include the iOS app I built, the node.js server and the unity script.
+
+# iOS App
+The iOS app creates a hook that will update the current heartrate everytime the scosche app (rythm sync) updates the heartrate in healthkit. You must setup Rythm Sync to sync with the Health app. Once that is done, make sure the iOS app has the permissions to read Health data. Press "Get Current HR" to get the lastest Heartrate. 
+
+
+"Get Current HR" will get the lastest HR (Heartrate) one time
+"Auto Update Display" will setup the hook to automatically update the HR
+"connect" will make the app attempt to connect to the given address
+
+The iOS app uses Socket-io-swift
+
+#Socket server
+Just run the server. On the ios app, put the right ip and port and press connect. The server should respond to the HR data and start emiting data itself. We will use this in the last step.
+
+#Unity script
+The unity script should be attached to an object, it just another socket client, it connects to the socket server and reads "HRData" messages.
