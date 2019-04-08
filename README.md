@@ -1,5 +1,5 @@
 # Heartrate-from-scosche-to-unity
-The project's goal is to get to measure the heart rate using the Scosche rhythm+ armband and get the results in real time (give or take 2s) in Unity.
+The project's goal is to get to measure the heart rate using the Scosche rhythm+ armband and get the results in real time in Unity.
 
 # Introduction
 
