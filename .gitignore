@@ -237,3 +237,7 @@ crashlytics-build.properties
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/node,swift,unity,xcode
+package-lock.json
+package.json
+/*/*/package.json
+/*/*/package-lock.json
