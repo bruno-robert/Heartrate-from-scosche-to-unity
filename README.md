@@ -17,14 +17,14 @@ In this is repo I'll include the iOS app I built, the node.js server and the uni
 The iOS app creates a hook that will update the current heartrate everytime the scosche app (rythm sync) updates the heartrate in healthkit. You must setup Rythm Sync to sync with the Health app. Once that is done, make sure the iOS app has the permissions to read Health data. Press "Get Current HR" to get the lastest Heartrate. 
 
 
-"Get Current HR" will get the lastest HR (Heartrate) one time
-"Auto Update Display" will setup the hook to automatically update the HR
-"connect" will make the app attempt to connect to the given address
+- "Get Current HR" will get the lastest HR (Heartrate) one time.
+- "Auto Update Display" will setup the hook to automatically update the HR.
+- "connect" will make the app attempt to connect to the given address.
 
 The iOS app uses Socket-io-swift
 
-#Socket server
-Just run the server. On the ios app, put the right ip and port and press connect. The server should respond to the HR data and start emiting data itself. We will use this in the last step.
+# Socket server
+Just run the server. On the ios app, enter ip address and port of the machine running the server and press connect. The correct format is ip:port (e.g. 192.168.1.1:3000). The server should respond to the HR data and start emiting data to all connected clients. We will use this in the last step.
 
-#Unity script
-The unity script should be attached to an object, it just another socket client, it connects to the socket server and reads "HRData" messages.
+# Unity script
+The unity script should be attached to an object, it just another socket client, it connects to the socket server and reads "HRData" messages the server sends when the iOS apps sends data.
