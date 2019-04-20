@@ -12,7 +12,9 @@ io.on('connection', function(socket){
     console.log('message: ' + msg);
     console.log('emitting: ' + msg);
     //socket.broadcast.emit("hrdata", msg);
-    io.sockets.emit("hrdata", msg);
+    io.sockets.emit("hrdata", {
+        data: msg
+    });
   });
   socket.on('disconnect', function(){
     console.log('user disconnected');
