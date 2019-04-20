@@ -27,4 +27,7 @@ The iOS app uses Socket-io-swift
 Just run the server. On the ios app, enter ip address and port of the machine running the server and press connect. The correct format is ip:port (e.g. 192.168.1.1:3000). The server should respond to the HR data and start emiting data to all connected clients. We will use this in the last step.
 
 # Unity script
-The unity script should be attached to an object, it just another socket client, it connects to the socket server and reads "HRData" messages the server sends when the iOS apps sends data.
+You will first need to import the [socket-io](https://assetstore.unity.com/packages/tools/network/socket-io-for-unity-21721) asset to your unity scene.
+Create an empty object and attach the "script path goes here" to it.
+Then attached the seccond script "Heartrate-from-scosche-to-unity/Unity Scripts/HeartBeat.cs" (included in this repo) to the object.
+If everything is done properly, the object should have a public variable that automatically updates with the most recent heartrate data.
